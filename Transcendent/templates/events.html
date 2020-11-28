@@ -1,0 +1,65 @@
+{% load static%}
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+<title>Events and Registration</title>
+<meta name="description" content="Thoughts, reviews and ideas since 1999."/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<link rel="shortcut icon" href="#">
+<link rel="stylesheet" type="text/css" href="{% static 'assets_article/css/screen.css' %}"/>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:400,300italic,300,400italic,700,700italic|Playfair+Display:400,700,400italic,700italic"/>
+</head>
+<body class="home-template">
+
+<div class="site-wrapper">
+	
+	<header class="main-header " style="background-image: url(assets_article/img/intro.jpg)">
+	<div class="vertical">
+		<div class="main-header-content inner">
+			<h1 class="page-title">Events and Registrations</h1>
+			<div class="entry-title-divider">
+				<span></span><span></span><span></span>
+			</div>
+			<h2 class="page-description">Be a part of the amazing Transcendent experience!</h2>
+		</div>
+	</div>
+	<a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
+	</header>
+	<main id="content" class="content" role="main">
+	<div class="wraps">
+		<img src="{% static 'assets_article/img/shadow.png' %}" class="wrapshadow">
+		<div class="grid">
+			{% for e in events%}
+			<div class="grid-item">
+				<article class="post">
+                    <a><img src="https://source.unsplash.com/random/350x150"></a>
+				<div class="wrapgriditem">
+					<header class="post-header">
+					<h2 class="post-title"><a>{{e.name}}</a></h2>
+					</header>
+					<section class="post-excerpt">
+					<p>
+						{{e.description}}
+					</p>
+					</section>
+					<footer class="post-meta">
+					<a href="{{e.g_link}}">Register here..</a>
+					<time class="post-date">{{e.date}}</time>
+					</footer>
+				</div>
+				</article>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+	</main>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script type="text/javascript" src="{% static 'assets_article/js/masonry.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets_article/js/jquery.fitvids.js' %}"></script>
+<script type="text/javascript" src="{% static 'assets_article/js/index.js' %}"></script>
+</body>
+</html>
